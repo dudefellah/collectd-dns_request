@@ -159,16 +159,18 @@ def dns_request_read(data=None):
         collectd.debug("nameservers: {}".format(resolver.nameservers))
         collectd.debug("resolver.query({}, {})".format(
             query['query'], query['recordtype']))
-        result = []
-        response_time = -1
+
+        response_time = None
         try:
             start = time.time()
-            result = resolver.query(query['query'], query[
-                'recordtype'], tcp=False, source=source_ip,
-                source_port=source_port)
+            result = resolver.query(query['query'],
+                                    query['recordtype'],
+                                    tcp=False,
+                                    source=source_ip,
+                                    source_port=source_port)
             end = time.time()
-            if (result):
-                response_time = float(end - start)
+            collectd.debug("Result: {}".format(result))
+            response_time = float(end - start)
         except dns.resolver.NoAnswer as e:
             # We can supply raise_on_no_answer=False to resolver.query (above)
             # in order to avoid doing this whole try block, but this
@@ -187,7 +189,6 @@ def dns_request_read(data=None):
             values=[response_time]
         )
         collectd.debug("Response time: {}".format(response_time))
-        collectd.debug("Result: {}".format(result))
         query_values.append(val)
 
     for val in query_values:
