@@ -1,0 +1,5 @@
+python-collectd-dns-request (1.0-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Dan Thomson <dan@fatmoustache.ca>  Sat, 17 Jun 2017 22:07:57 -0700

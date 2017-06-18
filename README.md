@@ -43,4 +43,14 @@ of collectd.conf.
 </Plugin>
 ```
 
-#
+# Dependencies
+
+The dependency versions have been set to the versions I used (the standard
+versions available in Debian Jessie). Previous versions may very well work,
+so if you are running a previous verison of these modules, you can try lowering
+the version limit.
+
+# Debian package
+
+A debian/ path has been added, but packaging hasn't really been checked
+very much. It may or may not work.

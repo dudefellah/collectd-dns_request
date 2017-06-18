@@ -1,0 +1,20 @@
+Source: python-collectd-dns-request
+Section: python
+Priority: optional
+Maintainer: Dan Thomson <dan@fatmoustache.ca>
+Build-Depends: debhelper (>= 9), dh-python, python-all, python-setuptools
+Standards-Version: 3.9.6
+Homepage: https://github.com/dudefellah/collectd-dns_request
+Vcs-Git: git://github.com/dudefellah/collectd-dns_request.git
+Vcs-Browser: https://github.com/dudefellah/collectd-dns_request.git
+
+Package: python-collectd-dns-request
+Architecture: any
+Depends: ${python:Depends}, ${misc:Depends}, python-dnspython (>= 1.12.0-1), python-ipaddress (>= 1.0.16-1~bpo8+1)
+Description: Simple Python-based plugin to report request times for specific requests to specific nameservers
+ This plugin was created to make it easy to ensure that a local (authoritative)
+ DNS server is responding to requests in an appropriate amount of time. Since
+ all the plugin does is report on the amount of time a DNS request took, this
+ could be used for any DNS response time tracking need. For example, it could
+ be quite useful if you're trying to see how DNS latency is affecting overall
+ network latency.
