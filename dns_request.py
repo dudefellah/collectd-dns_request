@@ -47,11 +47,11 @@ def dns_request_conf(config=None):
                   if x.key.lower() in
                   ('query', 'server', 'timeout', 'sourceip', 'sourceport')
                   ]:
-            collectd.info("Queries[{}][{}] values: {}".format(
+            collectd.debug("Queries[{}][{}] values: {}".format(
                 request_name, c.key.lower(), c.values[0]))
             Queries[request_name][c.key.lower()] = c.values[0]
 
-    collectd.info("QUERIES: {}".format(Queries.keys()))
+    collectd.debug("QUERIES: {}".format(Queries.keys()))
     required_args = set(['query', 'server', 'timeout'])
     for q, query in Queries.items():
         query = Queries[q]
@@ -70,7 +70,7 @@ def dns_request_conf(config=None):
             try:
                 resolver = dns.resolver.Resolver()
                 results = resolver.query(query['server'], 'A')
-                collectd.info("RESULTS {}: {}".format(
+                collectd.debug("RESULTS {}: {}".format(
                     query['server'], results))
                 if results:
                     Nameserver_Cache[query['server']] = str(results[0])
@@ -128,7 +128,7 @@ def dns_request_conf(config=None):
 def dns_request_read(data=None):
     global Queries, Nameserver_Cache
     query_values = []
-    collectd.info("NAMSERVER CACHE: {}".format(Nameserver_Cache))
+    collectd.debug("NAMSERVER CACHE: {}".format(Nameserver_Cache))
     for (q, query) in Queries.items():
         if ('skip' in query.keys() and query['skip']):
             continue
