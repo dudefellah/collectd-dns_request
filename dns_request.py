@@ -5,6 +5,7 @@ import dns.resolver
 import ipaddress
 
 import socket
+import signal
 import sys
 
 import time

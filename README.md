@@ -15,11 +15,13 @@ used, please check the **dnspython** documentation.
 
 # Installation
 
-This plugin should be as easy to install as any other Python plugin for
-collectd. Simply add _dns_request.py_ to your plugin path. Collectd looks at
-**sys.path** in order to find any Python plugins, and you can add additional
-search paths for your plugin with the **ModulePath** keyword in the [Python
-section](https://collectd.org/documentation/manpages/collectd-python.5.shtml)
+You can use setup.py (setuptools) to install the plugin automatically.
+
+If you'd like to do it manually, this plugin should be as easy to install
+as any other plugin for collectd. Simply add _dns_request.py_ to your plugin
+path. Collectd looks at **sys.path** in order to find any Python plugins,
+and you can add additional search paths for your plugin with the
+**ModulePath** keyword in the [Python section](https://collectd.org/documentation/manpages/collectd-python.5.shtml)
 of collectd.conf.
 
 # Configuration
