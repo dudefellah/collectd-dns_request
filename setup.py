@@ -15,7 +15,7 @@ setup(
     url='https://github.com/dudefellah/collectd-dns_request',
     include_package_data=True,
     license="GPLv3",
-    keywords='collectd-dns_request',
+    keywords=['collectd', 'dns', 'response_time'],
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
@@ -24,4 +24,5 @@ setup(
         "Programming Language :: Python :: 2",
         'Programming Language :: Python :: 2.7',
     ],
+    py_modules=['dns_request'],
 )
